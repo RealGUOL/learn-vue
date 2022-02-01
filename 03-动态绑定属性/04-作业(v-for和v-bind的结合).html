@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in movies" :class="{active: index===activeIndex}" @click="changeIndex(index)">{{index}}-{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        movies: ['进击的巨人', '东京食人族', '你好李焕英', '速度与激情'],
+        activeIndex: 0
+      },
+      methods: {
+        changeIndex: function(index) {
+          this.activeIndex = index
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
